@@ -105,3 +105,7 @@ const eventDeleted = () => ({
 export const eventClearAll = () => ({
   type: types.eventClearAll
 })
+
+export const eventLogout = () => ({
+  type: types.eventLogout
+})
