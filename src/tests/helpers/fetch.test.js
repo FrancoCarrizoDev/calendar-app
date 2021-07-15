@@ -1,25 +1,33 @@
-import { fetchWithoutToken, fetchWithToken } from "../../helpers/fetch"
+import { fetchSinToken, fetchConToken } from "../../helpers/fetch"
 
-describe("Test in Helpers", () => {
+describe("Pruebas en el helper Fetch", () => {
   let token = ""
-  test("fetch without token should works", async () => {
-    const response = await fetchWithoutToken(
+
+  test("fetchSinToken debe de funcionar", async () => {
+    const resp = await fetchSinToken(
       "auth",
-      { email: "mongo@gmail.com", password: "123123" },
+      { email: "fernando@gmail.com", password: "123456" },
       "POST"
     )
-    expect(response instanceof Response).toBe(true)
 
-    const body = await response.json()
+    expect(resp instanceof Response).toBe(true)
+
+    const body = await resp.json()
     expect(body.ok).toBe(true)
 
     token = body.token
   })
-  test("fetchWithToken shoulds works", async () => {
-    localStorage.setItem("token", token)
-    const response = await fetchWithToken("events")
-    const body = await response.json()
 
-    expect(body.error).toBe(false)
+  test("fetchSinToken debe de funcionar", async () => {
+    localStorage.setItem("token", token)
+
+    const resp = await fetchConToken(
+      "events/5ee25d21c25cce32af01a3f3",
+      {},
+      "DELETE"
+    )
+    const body = await resp.json()
+
+    expect(body.msg).toBe("Evento no existe por ese id")
   })
 })

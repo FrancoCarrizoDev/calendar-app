@@ -1,26 +1,26 @@
 import { types } from "../../types/types"
 
-describe("Test in Types", () => {
-  test("should be equals", () => {
+describe("Pruebas en Types", () => {
+  test("los types deben de ser iguales", () => {
     expect(types).toEqual({
-      uiOpenModal: "[ui] Open Modal",
-      uiCloseModal: "[ui] Close Modal",
+      uiOpenModal: "[ui] Open modal",
+      uiCloseModal: "[ui] Close modal",
 
       eventSetActive: "[event] Set Active",
+      eventLogout: "[event] Logout event",
+
+      evetStartAddNew: "[event] Start add new",
       eventAddNew: "[event] Add new",
-      eventStartAddNew: "[event] Start add new",
       eventClearActiveEvent: "[event] Clear active event",
       eventUpdated: "[event] Event updated",
-      eventDeteled: "[event] Event deleted",
-      eventClearAll: "[event] Clear All Event By Logout",
+      eventDeleted: "[event] Event deleted",
       eventLoaded: "[event] Events loaded",
-      eventLogout: "[event] Logout Event",
 
-      authChekingFinish: "[auth] Finish chechking login state",
+      authCheckingFinish: "[auth] Finish checking login state",
       authStartLogin: "[auth] Start login",
       authLogin: "[auth] Login",
       authStartRegister: "[auth] Start Register",
-      authStartTokenRenew: "[auth] Start Token Renew",
+      authStartStartTokenRenew: "[auth] Start token renew",
       authLogout: "[auth] Logout"
     })
   })
